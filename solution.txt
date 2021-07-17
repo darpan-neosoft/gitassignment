@@ -220,5 +220,51 @@ Resolving deltas: 100% (6/6), done.
 user@DESKTOP-DM4QKGI MINGW64 ~/gitassignment (clone)
 $ start notepad++ solution.txt
 
+user@DESKTOP-DM4QKGI MINGW64 ~/gitassignment (master)
+$ git switch clone
+Switched to branch 'clone'
+
 user@DESKTOP-DM4QKGI MINGW64 ~/gitassignment (clone)
-$
+$ git add solution.txt
+
+user@DESKTOP-DM4QKGI MINGW64 ~/gitassignment (clone)
+$ git commit -m "added solution.txt"
+[clone a7b976a] added solution.txt
+ 1 file changed, 224 insertions(+)
+ create mode 100644 solution.txt
+
+user@DESKTOP-DM4QKGI MINGW64 ~/gitassignment (clone)
+$ git switch master
+Switched to branch 'master'
+Your branch is up to date with 'origin/master'.
+
+user@DESKTOP-DM4QKGI MINGW64 ~/gitassignment (master)
+$ git merge clone
+Updating 3c7e1e4..a7b976a
+Fast-forward
+ solution.txt | 224 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ 1 file changed, 224 insertions(+)
+ create mode 100644 solution.txt
+
+user@DESKTOP-DM4QKGI MINGW64 ~/gitassignment (master)
+$ git add solution.txt
+
+user@DESKTOP-DM4QKGI MINGW64 ~/gitassignment (master)
+$ git commit -m "added solution.txt by master"
+[master 418587e] added solution.txt by master
+ 1 file changed, 1 insertion(+)
+ create mode 160000 gitassignment
+
+user@DESKTOP-DM4QKGI MINGW64 ~/gitassignment (master)
+$ git push -u origin master
+Enumerating objects: 6, done.
+Counting objects: 100% (6/6), done.
+Delta compression using up to 4 threads
+Compressing objects: 100% (5/5), done.
+Writing objects: 100% (5/5), 1.88 KiB | 1.88 MiB/s, done.
+Total 5 (delta 2), reused 0 (delta 0), pack-reused 0
+remote: Resolving deltas: 100% (2/2), completed with 1 local object.
+To https://github.com/darpan-neosoft/gitassignment.git
+   3c7e1e4..418587e  master -> master
+Branch 'master' set up to track remote branch 'master' from 'origin'.
+
