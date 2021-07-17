@@ -1,0 +1,224 @@
+user@DESKTOP-DM4QKGI MINGW64 ~
+$ mkdir gitassignment
+
+user@DESKTOP-DM4QKGI MINGW64 ~
+$ cd gitassignment
+
+user@DESKTOP-DM4QKGI MINGW64 ~/gitassignment
+$ git init
+Initialized empty Git repository in C:/Users/user/gitassignment/.git/
+
+user@DESKTOP-DM4QKGI MINGW64 ~/gitassignment (master)
+$ start notepad++ text1.txt
+
+user@DESKTOP-DM4QKGI MINGW64 ~/gitassignment (master)
+$ start notepad++ text2.txt
+
+user@DESKTOP-DM4QKGI MINGW64 ~/gitassignment (master)
+$ start notepad++ text3.txt
+
+user@DESKTOP-DM4QKGI MINGW64 ~/gitassignment (master)
+$ git add .
+
+user@DESKTOP-DM4QKGI MINGW64 ~/gitassignment (master)
+$ git commit -m "Initial commit"
+[master (root-commit) 286f81c] Initial commit
+ 3 files changed, 3 insertions(+)
+ create mode 100644 text1.txt
+ create mode 100644 text2.txt
+ create mode 100644 text3.txt
+
+user@DESKTOP-DM4QKGI MINGW64 ~/gitassignment (master)
+$ git checkout -b Dev
+Switched to a new branch 'Dev'
+
+user@DESKTOP-DM4QKGI MINGW64 ~/gitassignment (Dev)
+$ start notepad++ textDev.txt
+
+
+user@DESKTOP-DM4QKGI MINGW64 ~/gitassignment (Dev)
+$ git switch master
+Switched to branch 'master'
+
+user@DESKTOP-DM4QKGI MINGW64 ~/gitassignment (master)
+$ git checkout -b Test
+Switched to a new branch 'Test'
+
+user@DESKTOP-DM4QKGI MINGW64 ~/gitassignment (Test)
+$ start notepad++ textTest1.txt
+
+user@DESKTOP-DM4QKGI MINGW64 ~/gitassignment (Test)
+$ start notepad++ textTest2.txt
+
+user@DESKTOP-DM4QKGI MINGW64 ~/gitassignment (Test)
+$ ls
+text1.txt  text2.txt  text3.txt  textTest1.txt  textTest2.txt
+
+user@DESKTOP-DM4QKGI MINGW64 ~/gitassignment (Test)
+$ git add .
+
+user@DESKTOP-DM4QKGI MINGW64 ~/gitassignment (Test)
+$ git commit -m "Test branch added 2 files"
+[Test bc20b49] Test branch added 2 files
+ 3 files changed, 3 insertions(+)
+ create mode 100644 textDev.txt
+ create mode 100644 textTest1.txt
+ create mode 100644 textTest2.txt
+
+user@DESKTOP-DM4QKGI MINGW64 ~/gitassignment (Test)
+$ git switch Dev
+Switched to branch 'Dev'
+
+user@DESKTOP-DM4QKGI MINGW64 ~/gitassignment (Dev)
+$ ls
+text1.txt  text2.txt  text3.txt
+
+user@DESKTOP-DM4QKGI MINGW64 ~/gitassignment (Dev)
+$ start notepad++ textDev.txt
+
+user@DESKTOP-DM4QKGI MINGW64 ~/gitassignment (Dev)
+$ ls
+text1.txt  text2.txt  text3.txt  textDev.txt
+
+user@DESKTOP-DM4QKGI MINGW64 ~/gitassignment (Dev)
+$ git add .
+
+user@DESKTOP-DM4QKGI MINGW64 ~/gitassignment (Dev)
+$ git commit -m "Dev branch added 1 file"
+[Dev 9bffff7] Dev branch added 1 file
+ 1 file changed, 1 insertion(+)
+ create mode 100644 textDev.txt
+
+user@DESKTOP-DM4QKGI MINGW64 ~/gitassignment (Dev)
+$ start notepad++ textDev.txt
+
+user@DESKTOP-DM4QKGI MINGW64 ~/gitassignment (Dev)
+$ git add textDev.txt
+
+user@DESKTOP-DM4QKGI MINGW64 ~/gitassignment (Dev)
+$ git commit -m "Dev changed textDev file"
+[Dev 4022242] Dev changed textDev file
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+user@DESKTOP-DM4QKGI MINGW64 ~/gitassignment (Dev)
+$ git status
+On branch Dev
+nothing to commit, working tree clean
+
+user@DESKTOP-DM4QKGI MINGW64 ~/gitassignment (Dev)
+$ git log
+commit 40222425c3e48e3e3cf4d9de1009f6261550e3b3 (HEAD -> Dev)
+Author: darpan-neosoft <darpan.vasayani@neosoftmail.com>
+Date:   Sun Jul 18 04:20:45 2021 +0530
+
+    Dev changed textDev file
+
+commit 9bffff723302685a5bb6206cce25f81f3f2944f3
+Author: darpan-neosoft <darpan.vasayani@neosoftmail.com>
+Date:   Sun Jul 18 04:17:28 2021 +0530
+
+    Dev branch added 1 file
+
+commit 286f81cf247835a889037dea0a86fb69474cd5f6 (master)
+Author: darpan-neosoft <darpan.vasayani@neosoftmail.com>
+Date:   Sun Jul 18 04:12:20 2021 +0530
+
+    Initial commit
+
+
+user@DESKTOP-DM4QKGI MINGW64 ~/gitassignment (Dev)
+$ git diff 9bffff723302685a5bb6206cce25f81f3f2944f3 40222425c3e48e3e3cf4d9de1009f6261550e3b3
+diff --git a/textDev.txt b/textDev.txt
+index b86aa3c..5f0a70d 100644
+--- a/textDev.txt
++++ b/textDev.txt
+@@ -1 +1 @@
+-this is text Dev
+\ No newline at end of file
++this is text Dev with change
+\ No newline at end of file
+
+user@DESKTOP-DM4QKGI MINGW64 ~/gitassignment (Dev)
+$ git switch master
+Switched to branch 'master'
+
+user@DESKTOP-DM4QKGI MINGW64 ~/gitassignment (master)
+$ git merge Dev
+Updating 286f81c..4022242
+Fast-forward
+ textDev.txt | 1 +
+ 1 file changed, 1 insertion(+)
+ create mode 100644 textDev.txt
+
+user@DESKTOP-DM4QKGI MINGW64 ~/gitassignment (master)
+$ git switch Test
+Switched to branch 'Test'
+
+
+user@DESKTOP-DM4QKGI MINGW64 ~/gitassignment (Test)
+$ ls
+text1.txt  text2.txt  text3.txt  textTest1.txt  textTest2.txt
+
+user@DESKTOP-DM4QKGI MINGW64 ~/gitassignment (Test)
+$ git add .
+
+user@DESKTOP-DM4QKGI MINGW64 ~/gitassignment (Test)
+$ ls
+text1.txt  text2.txt  text3.txt  textTest1.txt  textTest2.txt
+
+user@DESKTOP-DM4QKGI MINGW64 ~/gitassignment (Test)
+$ git commit -m "Change in Test"
+[Test 5d13173] Change in Test
+ 1 file changed, 1 deletion(-)
+ delete mode 100644 textDev.txt
+
+user@DESKTOP-DM4QKGI MINGW64 ~/gitassignment (Test)
+$ git switch master
+Switched to branch 'master'
+
+user@DESKTOP-DM4QKGI MINGW64 ~/gitassignment (master)
+$ git merge Test
+hint: Waiting for your editor to close the file... unix2dos: converting file C:/Users/user/gitassignment/.git/MERGE_MSG to DOS format...
+dos2unix: converting file C:/Users/user/gitassignment/.git/MERGE_MSG to Unix format...
+Merge made by the 'recursive' strategy.
+ textTest1.txt | 1 +
+ textTest2.txt | 1 +
+ 2 files changed, 2 insertions(+)
+ create mode 100644 textTest1.txt
+ create mode 100644 textTest2.txt
+
+user@DESKTOP-DM4QKGI MINGW64 ~/gitassignment (master)
+$ git remote add origin https://github.com/darpan-neosoft/gitassignment.git
+
+user@DESKTOP-DM4QKGI MINGW64 ~/gitassignment (master)
+$ git push -u origin master
+Enumerating objects: 17, done.
+Counting objects: 100% (17/17), done.
+Delta compression using up to 4 threads
+Compressing objects: 100% (12/12), done.
+Writing objects: 100% (17/17), 1.32 KiB | 112.00 KiB/s, done.
+Total 17 (delta 6), reused 0 (delta 0), pack-reused 0
+remote: Resolving deltas: 100% (6/6), done.
+To https://github.com/darpan-neosoft/gitassignment.git
+ * [new branch]      master -> master
+Branch 'master' set up to track remote branch 'master' from 'origin'.
+
+user@DESKTOP-DM4QKGI MINGW64 ~/gitassignment (master)
+$ git checkout -b clone
+Switched to a new branch 'clone'
+
+user@DESKTOP-DM4QKGI MINGW64 ~/gitassignment (clone)
+$ git clone https://github.com/darpan-neosoft/gitassignment.git
+Cloning into 'gitassignment'...
+remote: Enumerating objects: 17, done.
+remote: Counting objects: 100% (17/17), done.
+remote: Compressing objects: 100% (6/6), done.
+remote: Total 17 (delta 6), reused 17 (delta 6), pack-reused 0
+Receiving objects: 100% (17/17), done.
+Resolving deltas: 100% (6/6), done.
+
+user@DESKTOP-DM4QKGI MINGW64 ~/gitassignment (clone)
+$ start notepad++ solution.txt
+
+user@DESKTOP-DM4QKGI MINGW64 ~/gitassignment (clone)
+$
